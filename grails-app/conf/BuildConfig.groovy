@@ -32,4 +32,4 @@ grails.project.dependency.resolution = {
 }
 
 grails.plugin.location.irUtils = "../irUtils"
-grails.plugin.location.anyStatement = "../anyStatement"
+grails.plugin.location.anyStatement = "../irStatement"
