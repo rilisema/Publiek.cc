@@ -1,0 +1,30 @@
+/* @override http://localhost:8080/kcc/css/klantvragen.css */
+
+#crumbs {
+	border: 1px solid #dedede;
+	height: 1.5em;
+        list-style-type:none;
+        margin-bottom: 10px;
+}
+
+#crumbs li {
+	float: left;
+	line-height: 1.3em;
+	padding-left: .75em;
+	color: #777;
+}
+
+#crumbs li a {
+	display: block;
+	padding: 0 15px 0 0;
+	background: url(../images/crumbs.gif) no-repeat right center;
+}
+
+#crumbs li a:link, #crumbs li a:visited {
+	text-decoration: none;
+	color: #777;
+}
+
+#crumbs li a:hover, #crumbs li a:focus {
+	color: #dd2c0d;
+}

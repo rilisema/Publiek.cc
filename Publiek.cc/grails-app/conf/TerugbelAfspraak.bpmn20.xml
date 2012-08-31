@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="definitions" targetNamespace="http://activiti.org/bpmn20"
+	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:activiti="http://activiti.org/bpmn">
+	<process id="terugbelAfspraak" isExecutable="false">
+		<startEvent id="start" name="Start" />
+		<userTask completionQuantity="1" id="create" name="create">
+			<potentialOwner>
+				<resourceAssignmentExpression>
+					<formalExpression>ROLE_KCC</formalExpression>
+				</resourceAssignmentExpression>
+			</potentialOwner>
+		</userTask>
+		<exclusiveGateway id="exclusivegateway1" name="Wel of geen mail"></exclusiveGateway>
+		<serviceTask id="mailTerugbeller" name="mailTerugbeller"
+			activiti:type="mail">
+			<extensionElements>
+				<activiti:field name="to" expression="${terugbellerEmail}" />
+				<activiti:field name="subject"
+					expression="${klantnaam} terugbellen op ${terugbelDatum}" />
+				<activiti:field name="html">
+					<activiti:expression>
+                    <![CDATA[
+                      <html>
+                        <body>
+                          Hallo ${terugbeller},<br/><br/>
+
+                          ${klantnaam} heeft gebeld. <br/><br/>
+                          <p>
+                          ${opmerkingen}
+                          </p>
+
+                          Klik ${taskUrl} om de taak uit te voeren<br/>
+
+                          Groet,<br/>
+
+                          het KCC team.
+                        </body>
+                      </html>
+                    ]]>
+                    </activiti:expression>
+				</activiti:field>
+			</extensionElements>
+		</serviceTask>
+		<userTask id="belTerug" name="belTerug" activiti:formKey="/terugbelAfspraak/edit">
+			<documentation>
+				Terugbellen door ${terugbeller}
+            </documentation>
+			<humanPerformer>
+				<resourceAssignmentExpression>
+					<formalExpression>${terugbeller}</formalExpression>
+				</resourceAssignmentExpression>
+			</humanPerformer>
+		</userTask>
+		<endEvent id="einde" name="Einde"></endEvent>
+		<sequenceFlow id="start-afspraak" name="" sourceRef="start"
+			targetRef="create" />
+		<sequenceFlow id="afspraak-xor" name="" sourceRef="create"
+			targetRef="exclusivegateway1" />
+		<sequenceFlow id="geenMail" name="Geen Mail" sourceRef="exclusivegateway1"
+			targetRef="belTerug">
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${stuurMail==false}]]></conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="welMail" name="Wel mail" sourceRef="exclusivegateway1"
+			targetRef="mailTerugbeller">
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${stuurMail==true}]]></conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="mail-belterug" name="" sourceRef="mailTerugbeller"
+			targetRef="belTerug" />
+		<sequenceFlow id="belTerug-einde" name="" sourceRef="belTerug"
+			targetRef="einde" />
+	</process>
+</definitions>
