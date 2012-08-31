@@ -8,3 +8,15 @@ target
 /plugins
 /web-app/plugins
 /web-app/WEB-INF/classes
+Publiek.cc/db/20110127-pcc.sql
+Publiek.cc/db/20110218-pcc-rp.sql
+Publiek.cc/db/20110225-ContentLocations.sql
+Publiek.cc/db/20110522-activiti-security.sql
+Publiek.cc/db/20110525-activiti-security.sql
+Publiek.cc/db/20110625.sql
+Publiek.cc/db/PCC_2011-02-04_12.43.35.sql
+Publiek.cc/db/activiti-5.2.sql
+Publiek.cc/db/contentlocaties_postgresql.sql
+Publiek.cc/db/database.sql
+Publiek.cc/db/drop-activiti.sql
+Publiek.cc/db/pcc_content_location.sql
