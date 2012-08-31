@@ -1,0 +1,320 @@
+/* @override 
+	http://localhost:8080/kcc/css/kcc.css
+	http://localhost:8083/kcc/css/kcc.css
+*/
+
+/* 
+    Document   : kcc
+    Created on : Jun 5, 2010, 8:49:21 AM
+    Author     : bass
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* environment settings */
+.env {
+	color: red;
+	}
+
+.env .development, .env .devMintlab {
+	color: red;
+	}
+	
+.env .test {
+	color: green;
+	}
+
+.env .production {
+	color: #aaa;
+	}
+
+/* tbv van rich text editor */
+.ir-rte td {
+	padding: 0px;
+	vertical-align: middle;
+	}
+
+.ir-rte table {
+	width: auto;
+	padding: 0px;
+}
+
+div.klantBeeldPersoon {
+    border: 1px solid #ccc;
+}
+
+div.klantBeeldPersoon table {
+    border: none;
+    width: 40%;
+}
+
+div.internalContent {
+    border: 1px solid #ccc;
+    background-color: #FF9966;
+}
+	
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+a:link, a:visited {
+    color : #045FB4;
+}
+
+a:hover {
+    color : #48802C;
+}
+
+.prop .value, .odd .value, .even .value {
+    font: 15px verdana, arial, helvetica, sans-serif;
+    width: 85%;
+}
+
+.selected {
+    background:none repeat scroll 0 0 #E0F8EC;
+}
+
+.search {
+    font: 11px verdana, arial, helvetica, sans-serif;
+}
+
+.search .prop .value {
+    width: 80%;
+}
+
+.dialog .anAnswer,.search .buttons {
+/*    margin-left:auto;
+    margin-right:auto;*/
+    /*width:80%;*/
+}
+
+/* tbv tegengaan css uit yui nav gui tag*/
+.search select, .search input, .search button, .search textarea, .search button {
+    font: 11px verdana, arial, helvetica, sans-serif;
+}
+
+.search h1 {
+    font-size: 20px;
+}
+
+.search, .search th {
+    font-size: 15;
+}
+
+.ft {
+    /*border-top:1px solid lightblue;*/
+    background-image: url("../images/kcc/lines.png");
+    background-repeat: no-repeat;
+    height: 150px;
+    text-align: right;
+    margin-right: 20px;
+    color: #aaa;
+    font-size: 75%;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-top: 5px;
+}
+
+.buttonMail a {
+    display: inline-block;
+    background: transparent url(../images/kcc/email_go.png) 5px 50% no-repeat;
+    padding-left: 28px;
+    height: 15px;
+    color : #333;
+}
+
+.buttons input.show, .links a.show{
+    background: transparent url("../images/kcc/magnifier.png") 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.copy, .links a.copy{
+    background: transparent url("../images/kcc/page_copy.png") 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.delete, .links a.delete {
+    background: transparent url(../images/skin/database_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.edit, .links a.edit {
+    background: transparent url(../images/skin/database_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.search, .links a.search {
+    background: transparent url("../images/kcc/find.png") 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.accept, .links input.accept {
+    background: transparent url(../images/kcc/accept.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.putThrough {
+/*    background: transparent url(../images/kcc/arrow_right.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/telephone_go.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.carryOn {
+/*    background: transparent url(../images/kcc/arrow_turn_left.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/telephone_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.takeBack {
+/*    background: transparent url(../images/kcc/arrow_undo.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/telephone.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.makeNote {
+/*    background: transparent url(../images/kcc/comment_add.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/telephone_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.menuButton a.search {
+    background: url(../images/kcc/find.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+
+textarea.answer, input.answer {
+    width: 70%;
+}
+
+.prop .rate {
+    /*background-color: #EEEEEE;*/
+    text-align: left;
+    width: 85%;
+}
+
+.dialog {
+    width:100%;
+    padding: 0;
+}
+
+.kccComment {
+/*    font-size: 75%;*/
+    font: 13px verdana, arial, helvetica, sans-serif;
+}
+
+textarea.comment {
+    width:800;
+}
+
+.resultItem a.SduPdc {
+    color : #3B0B24;
+/*    background: transparent url(../images/kcc/book_open.png) 5px 50% no-repeat;*/
+/*    background: transparent url(../images/kcc/briefcase.png) 5px 50% no-repeat; */
+    background: transparent url(../images/kcc/box.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.resultItem a.AccVac {
+    color : #336699;
+/*    background: transparent url(../images/kcc/book_open.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/lightbulb.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.resultItem a.LocalFacility {
+    color : #0B610B;
+/*    background: transparent url(../images/kcc/world_go.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/house.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.resultItem a.LocalPdc {
+    color : #0B610B;
+/*    background: transparent url(../images/kcc/world_go.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/box.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.resultItem a.ImpactivePdc {
+/*    color : #3B0B24; */
+    color : #48802C;
+/*    background: transparent url(../images/kcc/lorry.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/box.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.resultItem a.answer {
+    color : #336699;
+/*    background: transparent url(../images/kcc/book_open.png) 5px 50% no-repeat;*/
+    background: transparent url(../images/kcc/lightbulb_add.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+
+
+a.deleteComment {
+    color : #0B610B;
+    background: transparent url(../images/kcc/comment_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+input.search {
+    color : #0B610B;
+    background: transparent url(../images/kcc/magnifier.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+a.editComment {
+    color : #0B610B;
+    background: transparent url(../images/kcc/comment_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+
+a.createComment {
+    color : #0B610B;
+    background: transparent url(../images/kcc/comment.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+input.postSave {
+    color : #0B610B;
+    background: transparent url(../images/kcc/accept.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+.buttons input.cancel, input.postCancel {
+    color : #0B610B;
+    background: transparent url(../images/kcc/cancel.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+img.logo {
+    height: 100px;
+    border-style:solid;
+    border-width:0.0px;
+    padding-right: 40px;
+}
+
+h1 {
+    color: #48802c;
+    font-weight: bold;
+    font-size: 18px;
+    margin: .8em 0 .3em 0;
+}
+
+h2 {
+    color: #48802c;
+    font-weight: bold;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+}
+
+h3 {
+    color: #48802c;
+    font-weight: normal;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+}

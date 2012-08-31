@@ -1,0 +1,24 @@
+/* 
+    Document   : ettenLeur
+    Created on : Jun 27, 2010, 10:03:16 AM
+    Author     : bass
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+h1 {
+    color: red;
+}
+
+.logo {
+    background: #FFFFFF;
+}
+
+body {
+    background:  #F6CECE;
+}
