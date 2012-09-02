@@ -218,7 +218,7 @@ environments {
 	}
 	development {
 	//	System.disabledActiviti=true
-		grails.serverURL = "http://localhost:8080/${appName}"
+//		grails.serverURL = "http://localhost:8080/${appName}"
 		zaaksysteem.url = "https://bussum-test.zaaksysteem.nl/"
 		zaaksysteem.css.url = "https://bussum-test.zaaksysteem.nl/"
 //		zaaksysteem.css.url = "/Publiek.cc/css/bussum/"
@@ -240,7 +240,7 @@ environments {
 			//    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
 			//}
 			debug 'grails'
-			error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+			warn    'org.codehaus.groovy.grails.web.servlet',  //  controllers
 					'org.codehaus.groovy.grails.web.pages', //  GSP
 					'org.codehaus.groovy.grails.web.sitemesh', //  layouts
 					'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
