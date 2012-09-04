@@ -17,7 +17,7 @@
         <g:render template="zoekKlant"/>
         <br/>
         <br/>
-        <g:if test="${klanten?.size()>1}">
+        <g:if test="${klanten?.size() > 1}">
           <g:render template="kiesKlant"/>
           <br/>
           <br/>
