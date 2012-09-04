@@ -40,45 +40,38 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <div class="list">
+            <div class="list resultItem task-list">
                 <table>
                     <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'task.id.label', default: 'Id.')}" />
-                        
-                            <g:sortableColumn property="name" title="${message(code: 'task.name.label', default: 'Name')}" />
-                        
-                            <g:sortableColumn property="description" title="${message(code: 'task.description.label', default: 'Description')}" />
-                        
-                            <g:sortableColumn property="priority" title="${message(code: 'task.priority.label', default: 'Priority')}" />
-                            
-                            <g:sortableColumn property="createTime" title="${message(code: 'task.createTime.label', default: 'Create Time')}" />
-      											
-      											<th>Action</th>                                          
-                        </tr>
+                      <tr class="styled-head">
+                        <g:sortableColumn property="id" title="${message(code: 'task.id.label', default: 'Id.')}" />
+                        <g:sortableColumn property="name" title="${message(code: 'task.name.label', default: 'Name')}" />
+                        <g:sortableColumn property="description" title="${message(code: 'task.description.label', default: 'Description')}" />
+                        <g:sortableColumn property="priority" title="${message(code: 'task.priority.label', default: 'Priority')}" />
+                        <g:sortableColumn property="createTime" title="${message(code: 'task.createtime.label', default: 'Create Time')}" />
+                        <th colspan="2"><g:message code="task.action.label" default="Action" /></th>                                          
+                      </tr>
                     </thead>
                     <tbody>
                     <g:each in="${myTasks}" status="i" var="taskInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
                             <td><g:link action="getForm" params="[taskId:taskInstance.id]">${fieldValue(bean: taskInstance, field: "id")}</g:link></td>
-                        
                             <td>${fieldValue(bean: taskInstance, field: "name")}</td>
-                        
                             <td>${fieldValue(bean: taskInstance, field: "description")}</td>
-                        
                             <td>${fieldValue(bean: taskInstance, field: "priority")}</td>
-                            
                             <td><g:formatDate date="${taskInstance.createTime}" /></td>
-                            
-                            <td>
-                             		<g:form action="revokeTask" >
-                             				<g:hiddenField name="taskId" value="${taskInstance.id}" />
-                             				<span class="button"><g:submitButton style="font-weight:bold" name="revoke" value="${message(code: 'default.button.revoke.label', default: 'Revoke')}" /></span>                           			
-                             		</g:form>                  		
+                            <td width="70">
+                              <g:form action="getForm" params="[taskId:taskInstance.id]" method="get">
+                                <g:hiddenField name="taskId" value="${taskInstance.id}" />
+                                <span class="button"><g:submitButton style="font-weight:bold" name="action" value="${message(code: 'default.button.perform.label', default: 'Perform')}" /></span>                           			
+                              </g:form>
                             </td>
-                        
+                            <td width="95">
+                              <g:form action="revokeTask" >
+                                <g:hiddenField name="taskId" value="${taskInstance.id}" />
+                                <span class="button"><g:submitButton style="font-weight:bold" name="revoke" value="${message(code: 'default.button.revoke.label', default: 'Revoke')}" /></span>                           			
+                              </g:form>                  		
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>
