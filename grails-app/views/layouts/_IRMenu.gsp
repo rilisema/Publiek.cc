@@ -4,12 +4,12 @@
 
 <%
 def disabledActiviti = ConfigurationHolder.config.activiti.disabled?:false
-
+def myTaskCount = null
 if (!disabledActiviti) {
 	def sessionUsernameKey = ConfigurationHolder.config.activiti.sessionUsernameKey?:ActivitiConstants.DEFAULT_SESSION_USERNAME_KEY
 	def activitiService = ActivitiUtils.activitiService
 	def user = session[sessionUsernameKey]
-	def myTasksCount = activitiService?.getAssignedTasksCount(user.toString())?:0
+	myTasksCount = activitiService?.getAssignedTasksCount(user.toString())?:0
 }
 %>
 <irSysPar:getPar name="gemeente" var="gemeente" />
@@ -32,7 +32,7 @@ if (!disabledActiviti) {
 			<g:if test="${!disabledActiviti}">
  			  <irMenu:menuitem
 				href="${createLink(controller:'task',action:'myTaskList')}"
-				name="${message(code:'menuitem.taken', default:'taken', args:[myTasksCount])}" />
+				name="${message(code:'menuitem.taken', default:'taken', args:[myTasksCount?:0])}" />
 			</g:if>
 	</sec:ifLoggedIn>
 
