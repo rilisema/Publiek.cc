@@ -8,6 +8,7 @@ class User implements org.activiti.engine.identity.User {
 	String firstName
 	String lastName
 	String password
+	String responsibilities
 	boolean enabled
 	boolean accountExpired
 	boolean accountLocked
@@ -19,6 +20,7 @@ class User implements org.activiti.engine.identity.User {
 		email email: true, blank: false, unique: true
 		firstName blank: false
 		lastName blank: false
+		responsibilities nullable:true
 	}
 
 	static mapping = {
@@ -32,6 +34,6 @@ class User implements org.activiti.engine.identity.User {
 	}
 	
 	String toString() {
-		"$username"
+		responsibilities?"$username - ${responsibilities}":"$username"
 	}
 }

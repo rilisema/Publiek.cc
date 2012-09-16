@@ -54,6 +54,12 @@
                             <td valign="top" class="value">${fieldValue(bean: userInstance, field: "email")}</td>
                             
                         </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="username"><g:message code="user.responsibilities.label" default="Responsible for" /></label>
+                                </td>
+                                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "responsibilities")}</td>
+                            </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="user.accountExpired.label" default="Account Expired" /></td>

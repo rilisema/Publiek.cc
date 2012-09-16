@@ -55,7 +55,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="terugbelAfspraak.terugbeller.label" default="Terugbeller" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: terugbelAfspraakInstance, field: "terugbeller")}</td>
+                            <td valign="top" class="value">${terugbelAfspraakInstance?.terugbeller}</td>
                             
                         </tr>
                     

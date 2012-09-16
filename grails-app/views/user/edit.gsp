@@ -73,6 +73,15 @@
                                     <g:textField name="email" value="${userInstance?.email}" />
                                 </td>
                             </tr>
+                            
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="username"><g:message code="user.responsibilities.label" default="Responsible for" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'responsibilities', 'errors')}">
+                                    <g:textField name="responsibilities" value="${userInstance?.responsibilities}" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -82,7 +91,7 @@
                                     <g:checkBox name="accountExpired" value="${userInstance?.accountExpired}" />
                                 </td>
                             </tr>
-                        
+                                                    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="accountLocked"><g:message code="user.accountLocked.label" default="Account Locked" /></label>

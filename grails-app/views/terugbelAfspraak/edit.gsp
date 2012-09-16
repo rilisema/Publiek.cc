@@ -68,7 +68,7 @@
               <label for="terugbeller"><g:message code="terugbelAfspraak.terugbeller.label" default="Terugbeller" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'terugbeller', 'errors')}">
-              <g:select name="terugbeller" from="${users}" value="${terugbelAfspraakInstance?.terugbeller}"  />
+              <g:select name="terugbeller" from="${users}" optionKey="id" value="${terugbelAfspraakInstance?.terugbeller}"  />
             </td>
           </tr>
 
@@ -86,6 +86,7 @@
       </div>
       <div class="buttons">
         <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.complete.label', default: 'Complete')}" /></span>
+        <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Save without Completion')}" /></span>
       </div>
     </g:form>
   </div>

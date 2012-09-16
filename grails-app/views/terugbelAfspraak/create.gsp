@@ -63,7 +63,7 @@
               <label for="terugbeller"><g:message code="terugbelAfspraak.terugbeller.label" default="Terugbeller" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'terugbeller', 'errors')}">
-          <g:select name="terugbeller" from="${users}" value="${terugbelAfspraakInstance?.terugbeller}"  />
+          <g:select name="terugbeller" from="${users}" optionKey="id" value="${terugbelAfspraakInstance?.terugbeller}"  />
           </td>
           </tr>
 

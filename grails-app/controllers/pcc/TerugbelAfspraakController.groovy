@@ -40,9 +40,9 @@ class TerugbelAfspraakController {
         if (terugbelAfspraakInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'terugbelAfspraak.label', default: 'TerugbelAfspraak'), terugbelAfspraakInstance.id])}"
             params.id = terugbelAfspraakInstance.id
-			params.stuurMail= terugbelAfspraakInstance.stuurMail
+//			params.stuurMail= terugbelAfspraakInstance.stuurMail
 			params.taskUrl=createLink(controller:'task', action:'myTaskList', absolute: true)
-            params.terugbellerEmail = auth.User.findByUsername(params.terugbeller).email
+            params.terugbellerEmail = auth.User.findByUsername(params.terugbeller)?.email
             if(!params.terugbellerEmail) {
                 params.terugbellerEmail = "richard@informatieraadgevers.nl"
             }
@@ -96,7 +96,7 @@ class TerugbelAfspraakController {
                 }
             }
             terugbelAfspraakInstance.properties = params
-            params.terugbellerEmail = auth.User.findByUsername(params.terugbeller).email
+            params.terugbellerEmail = auth.User.get(params.terugbeller)?.email
             if(!params.terugbellerEmail) {
                 params.terugbellerEmail = "richard@informatieraadgevers.nl"
             }
