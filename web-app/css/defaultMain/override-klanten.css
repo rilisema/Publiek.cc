@@ -1,0 +1,13 @@
+div.klantBeeldPersoon { width: 40%; }
+div.klantBeeldPersoon table { width: 100%; }
+
+div.klantBeeld-content h2 { font-size: 1.2em; margin-top: 1em;}
+div.klantBeeld-content .klantBeeldPersoon table { border-collapse: collapse; }
+div.klantBeeld-content .klantBeeldPersoon table tr.noborder td { border-bottom: none; }
+
+div.klantBeeld-content .klantBeeldPersoon.search table { padding: 0; }
+div.klantBeeld-content .klantBeeldPersoon.search table tr td { vertical-align: middle; }
+div.klantBeeld-content .klantBeeldPersoon.search table tr td .buttons { margin: 5px 0; }
+
+div.klantBeeld-content .klantBeeldPersoon.customer-info table tr td.name { width: 15%; }
+div.klantBeeld-content .klantBeeldPersoon.customer-info table tr td.value { width: 35%; }

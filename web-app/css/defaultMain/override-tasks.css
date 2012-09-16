@@ -1,0 +1,20 @@
+/* Tasks subnavigatie vertical align */
+#pccContent .nav span.menuButton a { font-size: 12px; }
+#pccContent .nav span.menuButton.active a { color: #48802C; }
+#pccContent .nav span a.list { padding-bottom: 4px; }
+
+.zaaksysteem-memio table tr.styled-head th { font-size: 1.1em; color: #333; }
+.zaaksysteem-memio table tr.styled-head th a { font-size: 1em; display: inline-block; width: auto; padding-right: 1em;}
+.zaaksysteem-memio table tr.styled-head th a:hover { text-decoration: underline; }
+.zaaksysteem-memio .task-list a { padding-left: inherit !important; }
+.zaaksysteem-memio .task-list table tr:hover td { background-color: #eee; }
+.zaaksysteem-memio .task-list table tr th { padding: 0.5em; }
+.zaaksysteem-memio .task-list table tr th a { padding-left: 0 !important; }
+.zaaksysteem-memio .task-list table tr td { font-size: 13px; padding: 0.5em; vertical-align: middle; line-height: 27px; }
+.zaaksysteem-memio .task-list table tr.even td { background-color: #fff; }
+.zaaksysteem-memio .task-list table tr.odd td { background-color: #F7F7F7; }
+.zaaksysteem-memio .task-list table tr.even:hover td,
+.zaaksysteem-memio .task-list table tr.odd:hover td { background-color: #eee; }
+.zaaksysteem-memio .task-list table tr td a { display: block; }
+.zaaksysteem-memio .task-list table tr td select { font-size: 12px; }
+.zaaksysteem-memio .task-list table tr td form input { cursor: pointer; }
