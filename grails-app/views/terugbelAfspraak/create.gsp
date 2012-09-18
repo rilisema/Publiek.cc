@@ -51,6 +51,15 @@
 
           <tr class="prop">
             <td valign="top" class="name">
+              <label for="collegaNotities"><g:message code="terugbelAfspraak.colleganotities.label" default="Notities voor collega" /></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'collegaNotities', 'errors')}">
+          <g:textArea name="collegaNotities" cols="40" rows="5" value="${terugbelAfspraakInstance?.collegaNotities}" />
+          </td>
+          </tr>
+
+          <tr class="prop">
+            <td valign="top" class="name">
               <label for="terugbelDatum"><g:message code="terugbelAfspraak.terugbelDatum.label" default="Terugbel Datum" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'terugbelDatum', 'errors')}">
@@ -64,15 +73,6 @@
             </td>
             <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'terugbeller', 'errors')}">
           <g:select name="terugbeller" from="${users}" optionKey="id" value="${terugbelAfspraakInstance?.terugbeller}"  />
-          </td>
-          </tr>
-
-          <tr class="prop">
-            <td valign="top" class="name">
-              <label for="teruggebeld"><g:message code="terugbelAfspraak.teruggebeld.label" default="Teruggebeld" /></label>
-            </td>
-            <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'teruggebeld', 'errors')}">
-          <g:checkBox name="teruggebeld" value="${terugbelAfspraakInstance?.teruggebeld}" />
           </td>
           </tr>
 

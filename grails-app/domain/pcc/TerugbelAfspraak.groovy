@@ -5,6 +5,7 @@ class TerugbelAfspraak {
     String klantnaam
     String telefoonnummer
     String opmerkingen
+	String collegaNotities
     Boolean teruggebeld = false
 	Boolean stuurMail = true
     Date terugbelDatum
@@ -14,6 +15,7 @@ class TerugbelAfspraak {
         klantnaam(nullable:false, blank:false)
         telefoonnummer(nullable:false, blank:false, matches: /\d{2,4}[\s-]?\d{6,8}/)
         opmerkingen(nullable:false, blank:false, maxSize: 10000)
+        collegaNotities(nullable:false, blank:false, maxSize: 10000)
         terugbelDatum(nullable:false)
         terugbeller(nullable:false)
         teruggebeld(nullable:false)

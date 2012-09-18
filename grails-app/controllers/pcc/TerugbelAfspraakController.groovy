@@ -1,11 +1,15 @@
 package pcc
 
+import java.text.SimpleDateFormat
+
 
 class TerugbelAfspraakController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
     static activiti = true
-
+	
+	def dateFormatter = new SimpleDateFormat('dd/MM/yyyy')
+	
     def beforeInterceptor = {
         log.debug "Tracing action ${actionUri} with ${params}"
     }
@@ -36,11 +40,16 @@ class TerugbelAfspraakController {
     }
 
     def save = {
+		def terugBeller = auth.User.get(params.terugbeller)
+		params.terugbeller = terugBeller.username
+		log.debug "Terugbeller: ${terugBeller}"
         def terugbelAfspraakInstance = new TerugbelAfspraak(params)
         if (terugbelAfspraakInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'terugbelAfspraak.label', default: 'TerugbelAfspraak'), terugbelAfspraakInstance.id])}"
             params.id = terugbelAfspraakInstance.id
-//			params.stuurMail= terugbelAfspraakInstance.stuurMail
+			params.stuurMail= terugbelAfspraakInstance.stuurMail
+			params.terugbelDatum = dateFormatter.format(terugbelAfspraakInstance.terugbelDatum)
+			params.teruggebeld = (params?.teruggebeld)?true:false
 			params.taskUrl=createLink(controller:'task', action:'myTaskList', absolute: true)
             params.terugbellerEmail = auth.User.findByUsername(params.terugbeller)?.email
             if(!params.terugbellerEmail) {
@@ -56,7 +65,9 @@ class TerugbelAfspraakController {
             redirect(action: "show", params: params)
         }
         else {
-            render(view: "create", model: [terugbelAfspraakInstance: terugbelAfspraakInstance, myTasksCount: assignedTasksCount])
+			def users = activitiService.identityService.createUserQuery().memberOfGroup("ROLE_AFDELING").orderByUserId().asc().list()
+			
+            render(view: "create", model: [terugbelAfspraakInstance: terugbelAfspraakInstance, myTasksCount: assignedTasksCount, users: users])
         }
     }
 
@@ -79,11 +90,15 @@ class TerugbelAfspraakController {
         }
         else {
             def users = activitiService.identityService.createUserQuery().memberOfGroup("ROLE_AFDELING").orderByUserId().asc().list()
-            [terugbelAfspraakInstance: terugbelAfspraakInstance, myTasksCount: assignedTasksCount, users: users]
+			def terugBeller = auth.User.findByUsername(terugbelAfspraakInstance.terugbeller)
+			log.debug "Terugbeller in edit: $terugBeller"
+            [terugbelAfspraakInstance: terugbelAfspraakInstance, myTasksCount: assignedTasksCount, users: users, terugBeller: terugBeller]
         }
     }
 
     def update = {
+		def terugBeller = auth.User.get(params.terugbeller)
+		params.terugbeller = terugBeller.username
         def terugbelAfspraakInstance = TerugbelAfspraak.get(params.id)
         if (terugbelAfspraakInstance) {
             if (params.version) {
@@ -97,12 +112,16 @@ class TerugbelAfspraakController {
             }
             terugbelAfspraakInstance.properties = params
             params.terugbellerEmail = auth.User.get(params.terugbeller)?.email
+			params.teruggebeld = (params?.teruggebeld)?true:false
+			params.terugbelDatum = dateFormatter.format(terugbelAfspraakInstance.terugbelDatum)
+			
             if(!params.terugbellerEmail) {
                 params.terugbellerEmail = "richard@informatieraadgevers.nl"
             }
             if (!terugbelAfspraakInstance.hasErrors() && terugbelAfspraakInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'terugbelAfspraak.label', default: 'TerugbelAfspraak'), terugbelAfspraakInstance.id])}"
                 Boolean isComplete = params["_action_update"].equals(message(code: 'default.button.complete.label', default: 'Complete'))
+				log.debug "Parameters voor proces: $params"
                 if (isComplete) {
                     completeTask(params)
                 } else {

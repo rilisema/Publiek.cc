@@ -44,35 +44,36 @@
 		</serviceTask>
 		<userTask id="belTerug" name="belTerug" activiti:formKey="/terugbelAfspraak/edit">
 			<documentation>
-				Terugbellen door ${terugbeller}
+				Terugbellen door ${terugbeller} op ${terugbelDatum}
+				${collegaNotities}
             </documentation>
+            <humanPerformer>
+		      <resourceAssignmentExpression>
+		        <formalExpression>${terugbeller}</formalExpression>
+		      </resourceAssignmentExpression>
+		    </humanPerformer>
             <potentialOwner>
                 <resourceAssignmentExpression>
-                    <formalExpression>ROLE_AFDELING</formalExpression>
+                    <formalExpression>group(ROLE_AFDELING)</formalExpression>
                 </resourceAssignmentExpression>
             </potentialOwner>
-			<humanPerformer>
-				<resourceAssignmentExpression>
-					<formalExpression>${terugbeller}</formalExpression>
-				</resourceAssignmentExpression>
-			</humanPerformer>
 		</userTask>
 		<endEvent id="einde" name="Einde"></endEvent>
-		<sequenceFlow id="start-afspraak" name="" sourceRef="start"
-			targetRef="create" />
-		<sequenceFlow id="afspraak-xor" name="" sourceRef="create"
-			targetRef="exclusivegateway1" />
-		<sequenceFlow id="geenMail" name="Geen Mail" sourceRef="exclusivegateway1"
-			targetRef="belTerug">
+		
+		<sequenceFlow id="start-afspraak" name="" sourceRef="start" targetRef="create" />
+		<sequenceFlow id="afspraak-xor" name="" sourceRef="create" 	targetRef="exclusivegateway1" />
+		<sequenceFlow id="geenMail" name="Geen Mail" sourceRef="exclusivegateway1" targetRef="belTerug">
 			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${stuurMail==false}]]></conditionExpression>
 		</sequenceFlow>
-		<sequenceFlow id="welMail" name="Wel mail" sourceRef="exclusivegateway1"
-			targetRef="mailTerugbeller">
+		<sequenceFlow id="welMail" name="Wel mail" sourceRef="exclusivegateway1" targetRef="mailTerugbeller">
 			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${stuurMail==true}]]></conditionExpression>
 		</sequenceFlow>
-		<sequenceFlow id="mail-belterug" name="" sourceRef="mailTerugbeller"
-			targetRef="belTerug" />
-		<sequenceFlow id="belTerug-einde" name="" sourceRef="belTerug"
-			targetRef="einde" />
+		<sequenceFlow id="mail-belterug" name="" sourceRef="mailTerugbeller" targetRef="belTerug" />
+        <sequenceFlow id="belTerug-xor" name="" sourceRef="belTerug"  targetRef="exclusivegateway1">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${teruggebeld==false}]]></conditionExpression>
+        </sequenceFlow>
+		<sequenceFlow id="belTerug-einde" name="" sourceRef="belTerug" targetRef="einde" >
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${teruggebeld==true}]]></conditionExpression>
+        </sequenceFlow>
 	</process>
 </definitions>

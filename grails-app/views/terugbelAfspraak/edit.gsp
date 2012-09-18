@@ -53,6 +53,15 @@
           <g:textArea name="opmerkingen" cols="40" rows="5" value="${terugbelAfspraakInstance?.opmerkingen}" />
           </td>
           </tr>
+          
+          <tr class="prop">
+            <td valign="top" class="name">
+              <label for="collegaNotities"><g:message code="terugbelAfspraak.colleganotities.label" default="Notities voor collega" /></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'collegaNotities', 'errors')}">
+          <g:textArea name="collegaNotities" cols="40" rows="5" value="${terugbelAfspraakInstance?.collegaNotities}" />
+          </td>
+          </tr>
 
           <tr class="prop">
             <td valign="top" class="name">
@@ -68,7 +77,7 @@
               <label for="terugbeller"><g:message code="terugbelAfspraak.terugbeller.label" default="Terugbeller" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'terugbeller', 'errors')}">
-              <g:select name="terugbeller" from="${users}" optionKey="id" value="${terugbelAfspraakInstance?.terugbeller}"  />
+              <g:select name="terugbeller" from="${users}" optionKey="id" value="${terugBeller.id}"  />
             </td>
           </tr>
 
@@ -80,13 +89,21 @@
           <g:checkBox name="teruggebeld" value="${terugbelAfspraakInstance?.teruggebeld}" />
           </td>
           </tr>
-
+          
+          <tr class="prop">
+            <td valign="top" class="name">
+              <label for="stuurMail"><g:message code="terugbelAfspraak.stuurMail.label" default="Stuur mail" /></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: terugbelAfspraakInstance, field: 'stuurMail', 'errors')}">
+          <g:checkBox name="stuurMail" value="${terugbelAfspraakInstance?.stuurMail}" />
+          </td>
+          </tr>
+          
           </tbody>
         </table>
       </div>
       <div class="buttons">
         <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.complete.label', default: 'Complete')}" /></span>
-        <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Save without Completion')}" /></span>
       </div>
     </g:form>
   </div>
