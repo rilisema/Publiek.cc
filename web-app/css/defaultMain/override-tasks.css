@@ -18,3 +18,28 @@
 .zaaksysteem-memio .task-list table tr td a { display: block; }
 .zaaksysteem-memio .task-list table tr td select { font-size: 12px; }
 .zaaksysteem-memio .task-list table tr td form input { cursor: pointer; }
+
+.zaaksysteem-memio .task-list table tr td form span.button input { }
+.zaaksysteem-memio .task-list table tr td form span.button.btn-blue input { background-color: #13538A; color: #fff; border: none; padding: 2px 4px; }
+
+#searchForm input.button140 { 
+        /* margin-top: 6px;
+	margin-bottom: 6px; */
+	display: block;
+	line-height: 2.6;
+	overflow: hidden;
+	text-decoration: none;
+	width: 142px;
+	height: 32px !important;
+	background: url('../../images/defaultMain/button140-fresh.png');
+	color: #ffffff;
+	border: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	font-size: 11px !important;
+	padding: 0 !important;
+	font-weight: bold;
+	text-align: center;
+	outline-style: none;
+	outline-width: 0;
+}

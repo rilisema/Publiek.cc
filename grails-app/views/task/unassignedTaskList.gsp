@@ -63,13 +63,13 @@
                 <td width="135">
                   <g:form action="claimTask" >
                     <g:hiddenField name="taskId" value="${taskInstance.id}" />
-                    <span class="button"><g:submitButton style="font-weight:bold" name="claim" value="${message(code: 'default.button.claim.label', default: 'Claim')}" /></span>
+                    <span class="button btn-blue"><g:submitButton name="claim" value="${message(code: 'default.button.claim.label', default: 'Claim')}" /></span>
                   </g:form>
                 </td>
                 <td width="95">
                   <g:form action="startTask" >
                     <g:hiddenField name="taskId" value="${taskInstance.id}" />
-                    <span class="button"><g:submitButton style="font-weight:bold" name="start" value="${message(code: 'default.button.start.label', default: 'Start')}" /></span>
+                    <span class="button btn-blue"><g:submitButton name="start" value="${message(code: 'default.button.start.label', default: 'Start')}" /></span>
                   </g:form>                  		
                 </td>                        
               </tr>
