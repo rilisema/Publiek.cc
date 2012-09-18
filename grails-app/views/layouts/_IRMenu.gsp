@@ -33,6 +33,9 @@ if (!disabledActiviti) {
  			  <irMenu:menuitem
 				href="${createLink(controller:'task',action:'myTaskList')}"
 				name="${message(code:'menuitem.taken', default:'taken', args:[myTasksCount?:0])}" />
+              <irMenu:menuitem
+                href="${createLink(controller:'terugbelAfspraak',action:'start')}"
+                name="${message(code:'menuitem.maakterugbelafspraak', default:'Maak terugbelafspraak')}" />
 			</g:if>
 	</sec:ifLoggedIn>
 

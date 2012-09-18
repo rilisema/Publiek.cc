@@ -46,6 +46,11 @@
 			<documentation>
 				Terugbellen door ${terugbeller}
             </documentation>
+            <potentialOwner>
+                <resourceAssignmentExpression>
+                    <formalExpression>ROLE_AFDELING</formalExpression>
+                </resourceAssignmentExpression>
+            </potentialOwner>
 			<humanPerformer>
 				<resourceAssignmentExpression>
 					<formalExpression>${terugbeller}</formalExpression>
