@@ -100,7 +100,7 @@
               <td width="85">
                 <g:form action="deleteTask" onsubmit="return confirmDelete();">
                   <g:hiddenField name="taskId" value="${taskInstance.id}" />
-                  <span class="button"><g:submitButton style="font-weight:bold" name="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/></span>                           			
+                  <span class="button btn-blue"><g:submitButton name="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}"/></span>                           			
                 </g:form>                  		
               </td>
             </tr>

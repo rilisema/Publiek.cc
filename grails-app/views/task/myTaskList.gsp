@@ -63,13 +63,13 @@
                             <td width="70">
                               <g:form action="getForm" params="[taskId:taskInstance.id]" method="get">
                                 <g:hiddenField name="taskId" value="${taskInstance.id}" />
-                                <span class="button"><g:submitButton style="font-weight:bold" name="action" value="${message(code: 'default.button.perform.label', default: 'Perform')}" /></span>                           			
+                                <span class="button btn-blue"><g:submitButton name="action" value="${message(code: 'default.button.perform.label', default: 'Perform')}" /></span>                           			
                               </g:form>
                             </td>
                             <td width="95">
                               <g:form action="revokeTask" >
                                 <g:hiddenField name="taskId" value="${taskInstance.id}" />
-                                <span class="button"><g:submitButton style="font-weight:bold" name="revoke" value="${message(code: 'default.button.revoke.label', default: 'Revoke')}" /></span>                           			
+                                <span class="button btn-blue"><g:submitButton name="revoke" value="${message(code: 'default.button.revoke.label', default: 'Revoke')}" /></span>                           			
                               </g:form>                  		
                             </td>
                         </tr>
