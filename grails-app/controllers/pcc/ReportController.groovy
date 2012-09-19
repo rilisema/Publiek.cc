@@ -13,6 +13,10 @@ class ReportController {
     def defaultReport = {
         []
     }
+	
+	def taskReport = {
+		[]
+	}
 
     def export = {
         log.debug "export stmt: ${params}"
@@ -25,16 +29,22 @@ class ReportController {
             response.setHeader("Content-disposition", "attachment; filename=${aStmt.name.replace(' ','_')}.${params.extension}")
 
             ArrayList resultSet = stmtResult.resultSet
-            Map labels
+			Map labels = [:]
             Map formatters 
             Map parameters
             List fields = [] //BS: in anyStatement versie 0.3 kan dit met stmtResultSet.columnNames
             if (resultSet.size() > 0 ){
-                resultSet[0].each {col ->
+                resultSet[0].eachWithIndex {col, ix ->
                     fields.add(col.key.toString())
+					labels[col.key.toString()] = stmtResult.columnNames[ix]
                 }
             }
-
+//			if (resultSet.size() > 0 ){
+//				resultSet[0].eachWithIndex {col,ix ->
+//					fields.add(col.key.toString())
+//					labels[col.key.toString()] = stmtResult.columnNames[ix]
+//				}
+//			}
             exportService.export(params.format, response.outputStream, resultSet, fields, labels, formatters, parameters)
             log.debug "export stmt: ${params?.stmtId}"
         } else {

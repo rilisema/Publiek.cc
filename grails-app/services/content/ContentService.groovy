@@ -129,6 +129,7 @@ class ContentService {
 	}
 	
 	Integer incrementViewCount(def contentInstance) {
+		log.debug "Increment viewcount for ${contentInstance}"
 		contentInstance.viewCount += 1
 		log.debug "save : ${contentInstance.save(flush:true)}"
 		

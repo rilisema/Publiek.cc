@@ -218,7 +218,7 @@ environments {
 	}
 	development {
 	//	System.disabledActiviti=true
-//		grails.serverURL = "http://localhost:8080/${appName}"
+		grails.serverURL = "http://localhost:8080/Publiek.cc"
 		zaaksysteem.url = "https://bussum-test.zaaksysteem.nl/"
 		zaaksysteem.css.url = "https://bussum-test.zaaksysteem.nl/"
 //		zaaksysteem.css.url = "/Publiek.cc/css/bussum/"

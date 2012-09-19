@@ -40,6 +40,9 @@ if (!disabledActiviti) {
               <irMenu:menuitem
                 href="${createLink(controller:'terugbelAfspraak',action:'start')}"
                 name="${message(code:'menuitem.maakterugbelafspraak', default:'Maak terugbelafspraak')}" />
+	 <irMenu:menuitem
+			href="${createLink(controller:'report',action:'taskReport')}"
+			name="${message(code:'menuitem.kccreport', default:'Taken overzicht')}" />
     </sec:ifAnyGranted>
 
 	<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_EDITOR">
